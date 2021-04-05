@@ -14,9 +14,9 @@ export default class Watcher {
     this.run()
   }
   get() {
+    let value
     // 开始收集依赖，让全局的Dep.target等于Watcher本身
     Dep.target = this
-    let value = null
     try {
       value = this.getter(this.target)
     } finally {

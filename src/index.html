@@ -9,9 +9,46 @@
 </head>
 
 <body>
-  <button id="btn">change</button>
-  <div id="app"></div>
+  <div id="app">
+    <input type="text" v-model="index" />
+    {{index}}
+    <button id="btn" @click="change">{{button}}</button>
+    {{title}}
+    <!-- <ul :class="ulClass" v-for="item in ul" :key="item.id">
+      <li>{{item.name}}</li>
+    </ul> -->
+  </div>
   <script src="../dist/bundle.js"></script>
 </body>
 
 </html>
+<script>
+  const vm = new Vue({
+    el: '#app',
+    data: {
+      index: 0,
+      isShow: false,
+      button: 'change',
+      title: '这是一个标题',
+      ulClass: 'ul-box',
+      ul: [{
+        id: 0,
+        name: 'li1'
+      }, {
+        id: 1,
+        name: 'li2'
+      }, {
+        id: 2,
+        name: 'li3'
+      }]
+    },
+    watch: {
+      isShow() {
+        console.log('isShow改变了')
+      },
+      title() {
+        console.log('title改变了')
+      }
+    }
+  })
+</script>
